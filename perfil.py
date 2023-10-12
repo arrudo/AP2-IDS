@@ -62,7 +62,6 @@ def display_play_page(category_name, item):  # vai para o jogo em si
     random_item = random.choice(item)
     answer = random_item[0]
     attempts = 5
-    
 
     if category_name == categories[0]:
         message_label = customtkinter.CTkLabel(
@@ -74,7 +73,6 @@ def display_play_page(category_name, item):  # vai para o jogo em si
         )
     message_label.pack(padx=10, pady=(20, 30))
 
-    
     def check_guess():  # verifica se o usuario acertou
         nonlocal attempts
         user_input = user_guess.get()
@@ -87,7 +85,6 @@ def display_play_page(category_name, item):  # vai para o jogo em si
             attempts_label.configure(text=f"{attempts}/5 Tentativas")
             if attempts == 0:
                 exit_match()
-
 
     guess_frame = customtkinter.CTkFrame(window, fg_color="transparent")
     guess_frame.pack(padx=10, pady=10)
@@ -104,7 +101,7 @@ def display_play_page(category_name, item):  # vai para o jogo em si
     submit_button.pack(side="left", padx=(10, 0))
 
     attempts_label = customtkinter.CTkLabel(guess_frame, text="5/5 Tentativas")
-    attempts_label.pack(side="left", padx=(10,0))
+    attempts_label.pack(side="left", padx=(10, 0))
 
     fail_label = customtkinter.CTkLabel(window, text="", text_color="red")
     fail_label.pack(padx=10, pady=(2, 10))
@@ -126,8 +123,6 @@ def display_play_page(category_name, item):  # vai para o jogo em si
             command=lambda i=hint_index: show_hint(i),
         )
         hint_button.pack(side="left", padx=10, pady=10)
-
-    
 
     def exit_match():
         message_label.pack_forget()
